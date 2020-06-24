@@ -1,0 +1,89 @@
+body{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('../img/rapidez.jpg');
+    background-attachment: fixed;
+    color: #FFF;
+}
+hr{
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #ccc;
+}
+form{
+    margin-bottom: 20%;
+    background-color: rgba(0,0,0,.6)
+}
+h1{
+    font-size: 2.5em;
+    margin-bottom: 3%;
+}
+h2{
+    font-size: 1.2em;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+.bf{
+    
+}
+.distribuicao h2{
+    padding-left: 3%;
+}
+.distribuicao input{
+    margin-right: 0;
+}
+.distribuicao input:nth-of-type(1){
+    margin-left: 5%;
+}
+.distribuicao label{
+    color: #fff;
+    font-weight: bold;
+}
+.distribuicao label:nth-of-type(1){
+    margin-left: 0%;
+    margin-right: 5%;
+}
+.distribuicao input:checked+label {
+    color: green;
+}
+.distribuicao label:hover {
+    opacity: 0.6;
+}
+.expectativa input{
+    width: 50%;
+}
+@media(max-width: 991px){
+    .expectativa input{
+    width: 100%;
+    }
+}
+.btn-success{
+    margin-left: 3%;
+    margin-bottom: 10%;
+}
+.indicado-final{
+    
+}
+.img-responsive{
+    width: 70%;
+    margin: 2% 15%;
+}
+.p-a{
+    color: transparent;
+}
+.submit-btn{
+    width: 70%;
+    margin: 1% 15%;
+}
+p{
+    margin-left: 2%;
+}
+

@@ -1,0 +1,91 @@
+Instagram:
+Hex: #bc2a8d
+RGB: 188, 42, 141
+
+Facebook:
+Hex: #3b5998
+RGB: 59, 89, 152
+
+Twitter:
+Hex: #55acee
+RGB: 85, 172, 238
+
+Youtube:
+Hex: #ff0000
+RGB: 255, 0, 0
+
+
+animação 2D e 3D
+modelagem
+criação de mascote 2D e 3D ----
+criação de logo
+miv de logo completo
+material gráficos ---
+material web ---
+
+
+rosa
+amarelo
+verde
+azul
+
+<i class="fas fa-images"></i>
+<i class="fas fa-video"></i>
+
+
+<?php
+                         if (isset($_POST['BTEnvia'])){
+ 
+	                     //REMETENTE --> ESTE EMAIL TEM QUE SER VALIDO DO DOMINIO
+ 	                     //====================================================
+	                     $email_remetente = "contato@brasaexpress.com.br"; // deve ser um email do dominio
+	                     //====================================================
+ 
+ 
+	                     //Configurações do email, ajustar conforme necessidade
+	                     //====================================================
+	                     $email_destinatario = "contato@brasaexpress.com.br"; // qualquer email pode receber os dados
+	                     $email_reply = "$email";
+	                     $email_assunto = "Contato do Site - Formulário";
+	                     //====================================================
+ 
+ 
+	                     //Variaveis de POST, Alterar somente se necessário
+	                     //====================================================
+	                     $name = $_POST['name'];
+	                     $email = $_POST['email'];
+	                     $tel = $_POST['tel'];
+ 	                     $mensagem = $_POST['mensagem'];
+	                     
+	                     //====================================================
+ 
+	                     //Monta o Corpo da Mensagem
+	                     //====================================================
+	                     $email_conteudo = "Nome = $name \n"; 
+	                     $email_conteudo .= "Email = $email \n"; 
+	                     $email_conteudo .=  "Telefone = $tel \n";
+	                     $email_conteudo .=  "Mensagem = $mensagem \n";                         
+	       
+ 	                     //====================================================
+ 
+	                     //Seta os Headers (Alerar somente caso necessario)
+	                     //====================================================
+	                     $email_headers = implode ( "\n",array ( "From: $email_remetente", "Reply-To: $email_reply", "Subject: $email_assunto","Return-Path:  $email_remetente","MIME-Version: 1.0","X-Priority: 3","Content-Type: text/html; charset=UTF-8" ) );
+	                     //====================================================
+ 
+ 
+	                     //Enviando o email
+	                     //====================================================
+	                     if (mail ($email_destinatario, $email_assunto, nl2br($email_conteudo), $email_headers)){
+		                     
+                             echo "<script>alert('Foi enviado com sucesso $name, em breve lhe responderemos ... Obrigado !');</script>";
+
+	                    }
+  	                    else{
+		                     echo "</b>Falha no envio do E-Mail!</b>";
+	                    }
+	                     //====================================================
+                        }	
+                       ?>
+
+

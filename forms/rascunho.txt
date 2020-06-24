@@ -1,0 +1,115 @@
+<?php
+                         if (isset($_POST['BTEnvia'])){
+ 
+	                     //REMETENTE --> ESTE EMAIL TEM QUE SER VALIDO DO DOMINIO
+ 	                     //====================================================
+	                     $email_remetente = "atendimento@mayd.online"; // deve ser um email do dominio
+	                     //====================================================
+ 
+ 
+	                     //Configurações do email, ajustar conforme necessidade
+	                     //====================================================
+	                     $email_destinatario = "atendimento@mayd.online"; // qualquer email pode receber os dados
+	                     $email_reply = "$email";
+	                     $email_assunto = "Cadastro Mayd.";
+	                     //====================================================
+ 
+ 
+	                     //Variaveis de POST, Alterar somente se necessário
+	                     //====================================================
+	                     $nome = $_POST['nome'];
+	                     $sobrenome = $_POST['sobrenome'];
+	                     $tel = $_POST['tel'];
+ 	                     $end = $_POST['end'];
+                         $bairro = $_POST['bairro'];
+	                     $cidade = $_POST['cidade'];
+ 	                     $email = $_POST['email'];
+                             
+                         $indicacao_nome = $_POST['indicacao-nome'];
+	                     $indicacao_sobrenome = $_POST['indicacao-sobrenome'];
+                             
+                         $gender = $_POST['gender'];
+	                     $expectativa_indicacoes = $_POST['expectativa-indicacoes'];
+                             
+                         $indicado_nome1 = $_POST['indicado-nome1'];
+	                     $indicado_sobrenome1 = $_POST['indicado-sobrenome1'];
+	                     $indicado_email1 = $_POST['indicado-email1'];
+                             
+                         $indicado_nome2 = $_POST['indicado-nome2'];
+	                     $indicado_sobrenome2 = $_POST['indicado-sobrenome2'];
+	                     $indicado_email2 = $_POST['indicado-email2'];
+                             
+                         $indicado_nome3 = $_POST['indicado-nome3'];
+	                     $indicado_sobrenome3 = $_POST['indicado-sobrenome3'];
+	                     $indicado_email3 = $_POST['indicado-email3'];
+                             
+                         $indicado_nome4 = $_POST['indicado-nome4'];
+	                     $indicado_sobrenome4 = $_POST['indicado-sobrenome4'];
+	                     $indicado_email4 = $_POST['indicado-email4'];
+                             
+                         $indicado_nome5 = $_POST['indicado-nome5'];
+	                     $indicado_sobrenome5 = $_POST['indicado-sobrenome5'];
+	                     $indicado_email5 = $_POST['indicado-email5'];
+	                     
+	                     
+	                     //====================================================
+ 
+	                     //Monta o Corpo da Mensagem
+	                     //====================================================
+	                     $email_conteudo = "Nome = $nome \n"; 
+	                     $email_conteudo .= "Sobrenome = $sobrenome \n"; 
+	                     $email_conteudo .=  "Telefone = $tel \n";
+	                     $email_conteudo .=  "Endereço = $end \n";
+                         $email_conteudo .= "Bairro = $bairro \n"; 
+	                     $email_conteudo .=  "Cidade = $cidade \n";
+	                     $email_conteudo .=  "Email = $email \n";
+                             
+                         $email_conteudo .= "Indicado Por Nome = $indicacao_nome \n"; 
+                         $email_conteudo .= "Indocado Por Sobrenome = $indicacao_sobrenome \n";
+                             
+                         $email_conteudo .= "Informações de revenda: = $gender \n"; 
+                         $email_conteudo .= "Expectativa de Indicações = $expectativa_indicacoes \n";
+                             
+                         $email_conteudo .= "Indicado 1 Nome = $indicado_nome1 \n"; 
+	                     $email_conteudo .= "Indicado 1 Sobrenome = $indicado_sobrenome1 \n";
+                         $email_conteudo .=  "Indicado 1 Email = $indicado_email1 \n";
+                             
+                         $email_conteudo .= "Indicado 2 Nome = $indicado_nome2 \n"; 
+	                     $email_conteudo .= "Indicado 2 Sobrenome = $indicado_sobrenome2 \n";
+                         $email_conteudo .=  "Indicado 2 Email = $indicado_email2 \n";
+                             
+                         $email_conteudo .= "Indicado 3 Nome = $indicado_nome3 \n"; 
+	                     $email_conteudo .= "Indicado 3 Sobrenome = $indicado_sobrenome3 \n";
+                         $email_conteudo .=  "Indicado 3 Email = $indicado_email3 \n";
+                             
+                         $email_conteudo .= "Indicado 4 Nome = $indicado_nome4 \n"; 
+	                     $email_conteudo .= "Indicado 4 Sobrenome = $indicado_sobrenome4 \n";
+                         $email_conteudo .=  "Indicado 4 Email = $indicado_email4 \n";
+                             
+                         $email_conteudo .= "Indicado 5 Nome = $indicado_nome5 \n"; 
+	                     $email_conteudo .= "Indicado 5 Sobrenome = $indicado_sobrenome5 \n";
+                         $email_conteudo .=  "Indicado 5 Email = $indicado_email5 \n";
+                         
+                         
+	       
+ 	                     //====================================================
+ 
+	                     //Seta os Headers (Alerar somente caso necessario)
+	                     //====================================================
+	                     $email_headers = implode ( "\n",array ( "From: $email_remetente", "Reply-To: $email_reply", "Subject: $email_assunto","Return-Path:  $email_remetente","MIME-Version: 1.0","X-Priority: 3","Content-Type: text/html; charset=UTF-8" ) );
+	                     //====================================================
+ 
+ 
+	                     //Enviando o email
+	                     //====================================================
+	                     if (mail ($email_destinatario, $email_assunto, nl2br($email_conteudo), $email_headers)){
+		                     
+                             echo "<script>alert('Foi enviado com sucesso $nome, em breve lhe responderemos ... Obrigado !');</script>";
+
+	                    }
+  	                    else{
+		                     echo "</b>Falha no envio do E-Mail!</b>";
+	                    }
+	                     //====================================================
+                        }	
+                    ?>
